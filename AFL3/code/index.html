@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFL 3</title>
+
+    <!-- Font Imports -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS / JQuery -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Global Styling -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: 5px;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+            background-color: transparent;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #555;
+            border-radius: 999px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #666;
+        }
+
+        ::-webkit-scrollbar-thumb:active {
+            background: #777;
+        }
+
+        /* Tailwind Font Import */
+        @layer utilities {
+            .font-inter {
+                font-family: 'Inter', sans-serif;
+            }
+
+            .font-montserrat {
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            .font-roboto {
+                font-family: 'Roboto', sans-serif;
+            }
+
+            .font-source-sans {
+                font-family: 'Source Sans Pro', sans-serif;
+            }
+
+            .max-vw {
+                max-width: 90vw;
+            }
+        }
+
+        /* Divider Animation */
+        .rainbow-glow {
+            background: linear-gradient(90deg, violet, indigo, blue, green, yellow, orange, red, violet);
+            background-size: 200% 100%;
+            animation: rainbowGlow 5s linear infinite;
+            height: 1px;
+        }
+
+        @keyframes rainbowGlow {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            100% {
+                background-position: 200% 0%;
+            }
+        }
+
+        /* Background Animation */
+        .portfolio-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90vw;
+            display: flex;
+            justify-content: space-between;
+            color: gray;
+            opacity: 0.1;
+            z-index: 1;
+            white-space: nowrap;
+            animation: fadeOpacity 5s linear infinite;
+        }
+
+        @keyframes fadeOpacity {
+            0% {
+                opacity: 0.1;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.1;
+            }
+        }
+
+        .portfolio-letter {
+            opacity: 0.1;
+            animation: fadeLetter 5s linear infinite;
+        }
+
+        @keyframes fadeLetter {
+            0% {
+                opacity: 0.1;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.1;
+            }
+        }
+
+        .portfolio-letter:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .portfolio-letter:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .portfolio-letter:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .portfolio-letter:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+
+        .portfolio-letter:nth-child(5) {
+            animation-delay: 2s;
+        }
+
+        .portfolio-letter:nth-child(6) {
+            animation-delay: 2.5s;
+        }
+
+        .portfolio-letter:nth-child(7) {
+            animation-delay: 3s;
+        }
+
+        .portfolio-letter:nth-child(8) {
+            animation-delay: 3.5s;
+        }
+
+        .portfolio-letter:nth-child(9) {
+            animation-delay: 4s;
+        }
+
+        header {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Page Transitions */
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .fade-in-active {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body class="bg-[#191919] relative fade-in">
+    <div class="mx-auto max-vw">
+        <!-- Nav -->
+        <nav class="flex items-center justify-between text-white mt-4 mb-4">
+            <div class="flex items-center">
+                <a href="index.html">
+                    <img src="/images/Logo.png" alt="Logo" class="w-6 hover:opacity-90 sm:w-14">
+                </a>
+            </div>
+            <div class="flex items-center space-x-8 text-sm font-roboto font-medium sm:text-lg">
+                <a href="index.html" class="text-teal-200 hover:opacity-80">Home</a>
+                <a href="about.html" class="hover:opacity-80">About</a>
+                <a href="work.html" class="hover:opacity-80">Work</a>
+            </div>
+        </nav>
+
+        <div class="rainbow-glow"></div>
+
+        <!-- Background -->
+        <div class="portfolio-background text-neutral-600 font-inter font-black text-4xl sm:text-[10rem]">
+            <span class="portfolio-letter">P</span>
+            <span class="portfolio-letter">O</span>
+            <span class="portfolio-letter">R</span>
+            <span class="portfolio-letter">T</span>
+            <span class="portfolio-letter">F</span>
+            <span class="portfolio-letter">O</span>
+            <span class="portfolio-letter">L</span>
+            <span class="portfolio-letter">I</span>
+            <span class="portfolio-letter">O</span>
+        </div>
+
+        <!-- Header -->
+        <header
+            class="flex flex-col items-center justify-center h-[calc(100vh-70px)] z-10 text-white font-source-sans font-extralight sm:h-[calc(100vh-110px)]">
+            <h1 class="text-3xl mb-2 sm:text-6xl">Valentino Manuel Gunawan</h1>
+            <h2 class="text-2xl mt-2 sm:text-4xl">Full Stack Developer</h2>
+        </header>
+
+        <div class="rainbow-glow"></div>
+
+        <!-- Footer -->
+        <footer class="text-white flex items-center justify-between mt-4 mb-4">
+            <div class="flex items-center">
+                <p class="text-xl font-roboto font-light sm:text-5xl">Contact</p>
+            </div>
+            <div class="flex items-center space-x-5">
+                <a href="https://www.instagram.com/valentino.m.g/" target="_blank">
+                    <img src="/images/IG.png" alt="Instagram" class="w-6 sm:w-14">
+                </a>
+                <a href="https://github.com/Verzional" target="_blank">
+                    <img src="/images/GitHub.png" alt="GitHub" class="w-6 sm:w-14">
+                </a>
+                <a href="https://www.linkedin.com/in/valentinomg/" target="_blank">
+                    <img src="/images/LinkedIn.png" alt="LinkedIn" class="w-6 sm:w-14">
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Fade In
+            $('body').addClass('fade-in');
+
+            // Fade In Active
+            setTimeout(function () {
+                $('body').addClass('fade-in-active');
+            }, 10);
+
+            // Fade Out
+            $('nav a').on('click', function (event) {
+                event.preventDefault();
+                var href = $(this).attr('href');
+
+                // Fade in Active -> Fade Out
+                $('body').removeClass('fade-in-active').addClass('fade-out');
+
+                // Delay
+                setTimeout(function () {
+                    window.location.href = href;
+                }, 500);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFL 3 - About</title>
+
+    <!-- Font Imports -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS / JQuery -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Global Styling -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: 5px;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+            background-color: transparent;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #555;
+            border-radius: 999px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #666;
+        }
+
+        ::-webkit-scrollbar-thumb:active {
+            background: #777;
+        }
+
+        /* Tailwind Font Imports */
+        @layer utilities {
+            .font-inter {
+                font-family: 'Inter', sans-serif;
+            }
+
+            .font-montserrat {
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            .font-roboto {
+                font-family: 'Roboto', sans-serif;
+            }
+
+            .font-source-sans {
+                font-family: 'Source Sans Pro', sans-serif;
+            }
+
+            .max-vw {
+                max-width: 90vw;
+            }
+        }
+
+        /* Content Styling */
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+        }
+
+        .section-1,
+        .section-2,
+        .section-3,
+        .section-4 {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Divider Animation */
+        .vertical-rainbow-glow {
+            width: 1px;
+            height: 91%;
+            background: linear-gradient(180deg, violet, indigo, blue, green, yellow, orange, red, violet);
+            background-size: 100% 200%;
+            animation: verticalRainbowGlow 5s linear infinite;
+        }
+
+        @keyframes verticalRainbowGlow {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            100% {
+                background-position: 0% 200%;
+            }
+        }
+
+        .mobile-glow {
+            background: linear-gradient(90deg, violet, indigo, blue, green, yellow, orange, red, violet);
+            background-size: 200% 100%;
+            animation: rainbowGlow 5s linear infinite;
+            height: 1px;
+        }
+
+        .rainbow-glow {
+            background: linear-gradient(90deg, violet, indigo, blue, green, yellow, orange, red, violet);
+            background-size: 200% 100%;
+            animation: rainbowGlow 5s linear infinite;
+            height: 1px;
+        }
+
+        @keyframes rainbowGlow {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            100% {
+                background-position: 200% 0%;
+            }
+        }
+
+        /* Background Animation */
+        .about-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90vw;
+            display: flex;
+            justify-content: space-between;
+            color: gray;
+            opacity: 0.1;
+            z-index: -1;
+            white-space: nowrap;
+            animation: fadeOpacity 5s linear infinite;
+        }
+
+        @keyframes fadeOpacity {
+            0% {
+                opacity: 0.1;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.1;
+            }
+        }
+
+        .about-letter {
+            opacity: 0.1;
+            animation: fadeLetter 5s linear infinite;
+        }
+
+        @keyframes fadeLetter {
+            0% {
+                opacity: 0.1;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.1;
+            }
+        }
+
+        .about-letter:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .about-letter:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .about-letter:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .about-letter:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+
+        /* Page Transition */
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .fade-in-active {
+            opacity: 1;
+        }
+
+        /* Gallery Animation & Styling */
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+
+        .gallery {
+            display: flex;
+            overflow-x: hidden;
+            width: 100%;
+            height: auto;
+        }
+
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .gallery-navigation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .gallery-arrow {
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+        }
+
+        .gallery-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        /* Desktop Dividers */
+        @media screen and (min-width: 769px) {
+
+            .vertical-rainbow-glow{
+                display: block;
+            }
+
+            .mobile-glow {
+                display: none;
+            }
+
+            .rainbow-glow {
+                display: block;
+            }
+        }
+
+        /* Mobile Dividers */
+        @media screen and (max-width: 768px) {
+            
+            .vertical-rainbow-glow {
+                display: none;
+            }
+
+            .mobile-glow {
+                display: block;
+            }
+
+            .container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .section-1,
+            .section-2,
+            .section-3,
+            .section-4 {
+                flex: 1;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-[#191919] relative fade-in">
+    <div class="mx-auto max-vw">
+        <!-- Nav -->
+        <nav class="flex items-center justify-between text-white mt-4 mb-4">
+            <div class="flex items-center">
+                <a href="index.html">
+                    <img src="/images/Logo.png" alt="Logo" class="w-6 hover:opacity-90 sm:w-14 ">
+                </a>
+            </div>
+            <div class="flex items-center space-x-8 text-sm font-roboto font-medium sm:text-lg">
+                <a href="index.html" class="hover:opacity-80">Home</a>
+                <a href="about.html" class="hover:opacity-80">About</a>
+                <a href="work.html" class="text-teal-200 hover:opacity-80">Work</a>
+            </div>
+        </nav>
+
+        <div class="rainbow-glow"></div>
+
+        <!-- Background -->
+        <div class="about-background text-neutral-600 font-inter font-black text-4xl sm:text-8xl">
+            <span class="about-letter">W</span>
+            <span class="about-letter">O</span>
+            <span class="about-letter">R</span>
+            <span class="about-letter">K</span>
+        </div>
+
+        <!-- Gallery -->
+        <section class="flex justify-center">
+            <div class="container gap-0 sm:gap-16">
+                <div class="section-1 mob">
+                    <div class="flex flex-col items-center justify-center text-3xl font-montserrat text-white my-8">
+                        <p class="font-extrabold text-center mb-4 tracking-widest">2024 NPLC Committee</p>
+                        <div class="gallery-container relative">
+                            <div class="gallery">
+                                <div class="gallery-item">
+                                    <img src="/images/NPLC.jpg" alt="NPLC" class="rounded-md">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="/images/NPLC2.jpg" alt="NPLC2" class="rounded-md">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="/images/NPLC3.jpg" alt="NPLC3" class="rounded-md">
+                                </div>
+                            </div>
+                            <div class="gallery-navigation absolute top-0 bottom-0 left-0 right-0 flex items-center">
+                                <div class="gallery-arrow left-arrow hidden">
+                                    <span>&#8249;</span>
+                                </div>
+                                <div class="gallery-arrow right-arrow">
+                                    <span>&#8250;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="font-extralight text-center mt-4">F&B Division</p>
+                    </div>
+                </div>
+
+                <div class="mobile-glow w-full"></div>
+                <div class="vertical-rainbow-glow"></div>
+
+                <div class="section-2">
+                    <div class="flex flex-col items-center justify-center text-3xl font-montserrat text-white my-8">
+                        <p class="font-extrabold text-center mb-4 tracking-widest">2024 Fesbang Committee</p>
+                        <div class="gallery-container relative">
+                            <div class="gallery">
+                                <div class="gallery-item">
+                                    <img src="/images/Inventory.jpg" alt="Inventory" class="rounded-md">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="/images/Inventory2.jpg" alt="Inventory2" class="rounded-md">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="/images/Inventory3.jpg" alt="Inventory3" class="rounded-md">
+                                </div>
+                            </div>
+                            <div class="gallery-navigation absolute top-0 bottom-0 left-0 right-0 flex items-center">
+                                <div class="gallery-arrow left-arrow hidden">
+                                    <span>&#8249;</span>
+                                </div>
+                                <div class="gallery-arrow right-arrow">
+                                    <span>&#8250;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="font-extralight text-center mt-4">Inventory Division</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="rainbow-glow"></div>
+
+        <section class="flex justify-center">
+            <div class="container gap-0 sm:gap-16">
+                <div class="section-3">
+                    <div class="flex flex-col items-center justify-center text-3xl font-montserrat text-white my-8">
+                        <p class="font-extrabold text-center mb-4 tracking-widest">2023 Apple Foundation (2)</p>
+                        <div class="gallery-container relative">
+                            <div class="gallery">
+                                <div class="gallery-item">
+                                    <img src="/images/Apple.jpg" alt="Apple" class="rounded-md">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="/images/Apple2.jpg" alt="Apple2" class="rounded-md">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="/images/Apple3.jpg" alt="Apple3" class="rounded-md">
+                                </div>
+                            </div>
+                            <div class="gallery-navigation absolute top-0 bottom-0 left-0 right-0 flex items-center">
+                                <div class="gallery-arrow left-arrow hidden">
+                                    <span>&#8249;</span>
+                                </div>
+                                <div class="gallery-arrow right-arrow">
+                                    <span>&#8250;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="font-extralight text-center mt-4">Member</p>
+                    </div>
+                </div>
+
+                <div class="mobile-glow w-full"></div>
+                <div class="vertical-rainbow-glow"></div>
+                
+                <div class="section-4">
+                    <div class="flex flex-col items-center justify-center text-3xl font-montserrat text-white my-8">
+                        <p class="font-extrabold text-center mb-4 tracking-widest">EES Selling Artline Workshop</p>
+                        <div class="gallery-container relative">
+                            <div class="gallery">
+                                <div class="gallery-item">
+                                    <img src="/images/EES.jpg" alt="EES" class="rounded-md">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="/images/EES2.jpg" alt="EES2" class="rounded-md">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="/images/EES3.jpg" alt="EES3" class="rounded-md">
+                                </div>
+                            </div>
+                            <div class="gallery-navigation absolute top-0 bottom-0 left-0 right-0 flex items-center">
+                                <div class="gallery-arrow left-arrow hidden">
+                                    <span>&#8249;</span>
+                                </div>
+                                <div class="gallery-arrow right-arrow">
+                                    <span>&#8250;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="font-extralight text-center mt-4">Master of Ceremony</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="rainbow-glow"></div>
+
+        <!-- Footer -->
+        <footer class="text-white flex items-center justify-between mt-4 mb-4">
+            <div class="flex items-center">
+                <p class="text-xl font-roboto font-light sm:text-5xl">Contact</p>
+            </div>
+            <div class="flex items-center space-x-5">
+                <a href="https://www.instagram.com/valentino.m.g/" target="_blank">
+                    <img src="/images/IG.png" alt="Instagram" class="w-6 sm:w-14">
+                </a>
+                <a href="https://github.com/Verzional" target="_blank">
+                    <img src="/images/GitHub.png" alt="GitHub" class="w-6 sm:w-14">
+                </a>
+                <a href="https://www.linkedin.com/in/valentinomg/" target="_blank">
+                    <img src="/images/LinkedIn.png" alt="LinkedIn" class="w-6 sm:w-14">
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Fade In
+            $('body').addClass('fade-in');
+
+            // Fade In Active
+            setTimeout(function () {
+                $('body').addClass('fade-in-active');
+            }, 10);
+
+            // Fade Out
+            $('nav a').on('click', function (event) {
+                event.preventDefault();
+                var href = $(this).attr('href');
+
+                // Fade in Active -> Fade Out
+                $('body').removeClass('fade-in-active').addClass('fade-out');
+
+                // Delay
+                setTimeout(function () {
+                    window.location.href = href;
+                }, 500);
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            // Gallery Nav
+            function setupGalleryNavigation(sectionSelector) {
+                var galleryIndex = 0;
+                var totalImages = $(sectionSelector + ' .gallery-item').length;
+
+                $(sectionSelector + ' .left-arrow').hide();
+
+                $(sectionSelector + ' .right-arrow').click(function () {
+                    showNextImage();
+                });
+
+                $(sectionSelector + ' .left-arrow').click(function () {
+                    showPrevImage();
+                });
+
+                function showImage(index) {
+                    $(sectionSelector + ' .gallery-item').fadeOut();
+                    $(sectionSelector + ' .gallery-item').eq(index).fadeIn();
+                    galleryIndex = index;
+                    updateArrowsAndDots();
+                }
+
+                function showNextImage() {
+                    var nextIndex = (galleryIndex + 1) % totalImages;
+                    $(sectionSelector + ' .gallery-item').eq(galleryIndex).fadeOut(function () {
+                        showImage(nextIndex);
+                    });
+                }
+
+                function showPrevImage() {
+                    var prevIndex = (galleryIndex - 1 + totalImages) % totalImages;
+                    $(sectionSelector + ' .gallery-item').eq(galleryIndex).fadeOut(function () {
+                        showImage(prevIndex);
+                    });
+                }
+
+                function updateArrowsAndDots() {
+                    if (galleryIndex === 0) {
+                        $(sectionSelector + ' .left-arrow').hide();
+                    } else {
+                        $(sectionSelector + ' .left-arrow').show();
+                    }
+
+                    if (galleryIndex === totalImages - 1) {
+                        $(sectionSelector + ' .right-arrow').hide();
+                    } else {
+                        $(sectionSelector + ' .right-arrow').show();
+                    }
+                }
+
+                $(sectionSelector + ' .gallery-container').hover(function () {
+                    $(sectionSelector + ' .gallery-arrow').fadeIn();
+                }, function () {
+                    $(sectionSelector + ' .gallery-arrow').fadeOut();
+                });
+                showImage(galleryIndex);
+            }
+
+            // Setup
+            setupGalleryNavigation('.section-1');
+            setupGalleryNavigation('.section-2');
+            setupGalleryNavigation('.section-3');
+            setupGalleryNavigation('.section-4');
+        });
+    </script>
+</body>
+
+</html>
